@@ -60,17 +60,17 @@ class _ProfileClassState extends State<ProfileClass> {
         backgroundColor: Colors.white,
         toolbarHeight: 80,
         elevation: 2,
-        shadowColor: Color(0xff00000D),
+        shadowColor: Color(0x0D000000),
 
         leading: IconButton(icon: Icon(Icons.arrow_back_sharp ,size: 25, color:Color(0xff000000)) ,onPressed: (){
           Navigator.pop(context);
         }, ),
         titleSpacing: 0,
-        title: Text("Profile" , style: TextStyle(color: Color(0xff000000),fontSize: 17),),
+        title: Text("Profile" , style: TextStyle(color: Color(0xFF000000),fontSize: 16,fontWeight: FontWeight.bold),),
       ),
       body: SingleChildScrollView(
         child:  Container(
-          color: Color(0xffF7FBFE) ,
+          color: Color(0xFFF7FBFE) ,
           margin: EdgeInsets.symmetric(vertical: 30 ,horizontal:23 ),
           child: Column(
             children: [
@@ -89,7 +89,7 @@ class _ProfileClassState extends State<ProfileClass> {
                 child: Text("${listTodos.name}" ,style: TextStyle(color:Color(0xff2E3748) , fontSize: 20 ,)
                 ),
               ),
-              SizedBox(height: 2,),
+              SizedBox(height: 4,),
               Container(
                 alignment: Alignment.center,
                 child: Text("${listTodos.location}" ,style: TextStyle(color:Color(0xff9FA5BB) , fontSize: 15 ,)
@@ -142,12 +142,9 @@ class _ProfileClassState extends State<ProfileClass> {
                     ),
                   ),
 
-                  SizedBox(height: 10,),
-
-
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
               Column(
                 children: [
                   Container(
@@ -194,12 +191,10 @@ class _ProfileClassState extends State<ProfileClass> {
                     ),
                   ),
 
-                  SizedBox(height: 10,),
-
 
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
               Column(
                 children: [
                   Container(
@@ -246,12 +241,11 @@ class _ProfileClassState extends State<ProfileClass> {
                     ),
                   ),
 
-                  SizedBox(height: 10,),
 
 
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 10,),
               Column(
                 children: [
                   Container(
@@ -297,39 +291,48 @@ class _ProfileClassState extends State<ProfileClass> {
                       ],
                     ),
                   ),
-
-                  SizedBox(height: 10,),
-
-
                 ],
               ),
 
 
 
-              SizedBox(height: 20,),
-              Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color(0xffFF87011a),
-                          offset: Offset(0, 5),
-                          blurRadius: 10
-                      )
-                    ]
-                ),
-                child: RaisedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
-                } ,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    color: Color(0xffFF8701),
-                    child: Text("Logout" , style: TextStyle(color: Color(0xFFFFFFFF) ,
-                        fontSize: 14),)),
-              ),
+              SizedBox(height: 10,),
 
+              InkWell(
+                child: Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color(0xFFFF8701),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(0, 3),
+                            blurRadius: 20,
+                            color: Color(0x1AFF8701))
+                      ]),
+                  height: 60,
+                  width: double.infinity,
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Login(
+
+                          ),
+                        ),
+                      );
+                    },
+                    child: Center(
+                        child: Text(
+                          "Logout",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
